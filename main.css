@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+  --line-border-filled: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+* {
+  box-sizing: border-box
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: clip;
+  margin: 0;
+  background-color: #f6f7fb;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+  background-color: var(--line-border-empty);
+  height: 4px;
+  align-items: center;
+}
+
+.progress-container::before {
+  background-color: var(--line-border-filled);
+  transform: translateY(50%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--line-border-filled);
+  position: absolute;
+  height: 4px;
+  transform: translateY(50%);
+  z-index: 1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: #fff;
+  color: #999999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 3px var(--line-border-empty);
+  transition: 0.4s ease;
+  z-index: 2;
+}
+
+.circle.active {
+  border-color: var(--line-border-filled);
+}
+
+.btn {
+  background-color: var(--line-border-filled);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
+
+/* TODO: fix the line overlap */
